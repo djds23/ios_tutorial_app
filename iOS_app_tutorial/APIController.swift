@@ -9,6 +9,12 @@
 import Foundation
 
 class APIController {
+    
+    var delegate: APIControllerProtocol?
+    
+    init() {
+
+    }
 
     func searchItunesFor(searchTerm: String) {
         let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
@@ -28,6 +34,7 @@ class APIController {
                     println("JSON Error \(err?.localizedDescription)")
                 }
                 let results: NSArray = jsonResult["results"] as NSArray
+                self.delegate?.didRecieveAPIResults(jsonResult)
             })
             task.resume()
         }
@@ -37,5 +44,7 @@ class APIController {
 
 protocol APIControllerProtocol {
     func didRecieveAPIResults(results: NSDictionary)
+    
+    
 }
 
