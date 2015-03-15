@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B26F6E71AB5149A003B6605 /* album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26F6E61AB5149A003B6605 /* album.swift */; };
 		7B45C2DD1AAE9FEE00190B31 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B45C2DC1AAE9FEE00190B31 /* APIController.swift */; };
 		7BC809981AAE6AB0007E5CC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC809971AAE6AB0007E5CC8 /* AppDelegate.swift */; };
 		7BC8099A1AAE6AB0007E5CC8 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC809991AAE6AB0007E5CC8 /* SearchResultsViewController.swift */; };
@@ -14,6 +15,7 @@
 		7BC8099F1AAE6AB0007E5CC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC8099E1AAE6AB0007E5CC8 /* Images.xcassets */; };
 		7BC809A21AAE6AB0007E5CC8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC809A01AAE6AB0007E5CC8 /* LaunchScreen.xib */; };
 		7BC809AE1AAE6AB0007E5CC8 /* iOS_app_tutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC809AD1AAE6AB0007E5CC8 /* iOS_app_tutorialTests.swift */; };
+		7BE22DA61AB4AB3B00FF5ECF /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE22DA51AB4AB3B00FF5ECF /* Blank52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B26F6E61AB5149A003B6605 /* album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = album.swift; sourceTree = "<group>"; };
 		7B45C2DC1AAE9FEE00190B31 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		7BC809921AAE6AB0007E5CC8 /* iOS_app_tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_app_tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC809961AAE6AB0007E5CC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		7BC809A71AAE6AB0007E5CC8 /* iOS_app_tutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_app_tutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC809AC1AAE6AB0007E5CC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC809AD1AAE6AB0007E5CC8 /* iOS_app_tutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_app_tutorialTests.swift; sourceTree = "<group>"; };
+		7BE22DA51AB4AB3B00FF5ECF /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		7BC809941AAE6AB0007E5CC8 /* iOS_app_tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				7BE22DA51AB4AB3B00FF5ECF /* Blank52.png */,
 				7BC809971AAE6AB0007E5CC8 /* AppDelegate.swift */,
 				7BC809991AAE6AB0007E5CC8 /* SearchResultsViewController.swift */,
 				7BC8099B1AAE6AB0007E5CC8 /* Main.storyboard */,
@@ -86,6 +91,7 @@
 				7BC809A01AAE6AB0007E5CC8 /* LaunchScreen.xib */,
 				7BC809951AAE6AB0007E5CC8 /* Supporting Files */,
 				7B45C2DC1AAE9FEE00190B31 /* APIController.swift */,
+				7B26F6E61AB5149A003B6605 /* album.swift */,
 			);
 			path = iOS_app_tutorial;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC8099D1AAE6AB0007E5CC8 /* Main.storyboard in Resources */,
+				7BE22DA61AB4AB3B00FF5ECF /* Blank52.png in Resources */,
 				7BC809A21AAE6AB0007E5CC8 /* LaunchScreen.xib in Resources */,
 				7BC8099F1AAE6AB0007E5CC8 /* Images.xcassets in Resources */,
 			);
@@ -218,6 +225,7 @@
 				7BC8099A1AAE6AB0007E5CC8 /* SearchResultsViewController.swift in Sources */,
 				7BC809981AAE6AB0007E5CC8 /* AppDelegate.swift in Sources */,
 				7B45C2DD1AAE9FEE00190B31 /* APIController.swift in Sources */,
+				7B26F6E71AB5149A003B6605 /* album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
