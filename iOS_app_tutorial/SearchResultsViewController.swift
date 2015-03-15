@@ -11,19 +11,16 @@ import UIKit
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
 
     @IBOutlet var appsTableView : UITableView?
-
     var albums = [Album]()
-    var tableData = []
     var api : APIController?
     var imageCache = [String : UIImage]()
-    
     let kCellIdentifier: String = "SearchResultCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         api = APIController(delegate: self)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        api!.searchItunesFor("Angry Birds")
+        api!.searchItunesFor("Beatles")
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,14 +35,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
-        let rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
-        
-        let cellText: String? = rowData["trackName"] as? String
-        cell.textLabel?.text = cellText
+        let album = self.albums[indexPath.row]
+        cell.textLabel?.text = album.name
         cell.imageView?.image = UIImage(named: "Blank52")
 
-        let formattedPrice: NSString = rowData["formattedPrice"] as NSString
-        let urlString: NSString = rowData["artworkUrl60"] as NSString
+        let formattedPrice: NSString = album.price
+        let urlString: NSString = album.thumbnailImageURL
         
         var image = self.imageCache[urlString]
         if ( image == nil ) {
@@ -81,33 +76,21 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         cell.detailTextLabel?.text = formattedPrice
         return cell
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-        
-        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
-        
-        let cellText: String? = rowData["trackName"] as? String
-        cell.textLabel?.text = cellText
-        cell.imageView?.image = UIImage(named: "bank52")
-        
-        
-        var name: String = rowData["trackName"] as String
-        var formattedPrice: String = rowData["formattedPrice"] as String
-        
-        var alert: UIAlertView = UIAlertView()
-        alert.title = name
-        alert.message = formattedPrice
-        alert.addButtonWithTitle("OK")
-        alert.show()
-    }
+
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+//        var albumIndex = appsTableView!.indexPathForSelectedRow()!.row
+//        var selectedAlbum = self.albums[albumIndex]
+//        detailsViewController.album = selectedAlbum
+//        
+//    }
     
     func didRecieveAPIResults(results: NSDictionary) {
         var resultsArr: NSArray = results["results"] as NSArray
         dispatch_async(dispatch_get_main_queue(), {
-            self.tableData = resultsArr
+            self.albums = Album.albumsWithJson(resultsArr)
             self.appsTableView!.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
 }
